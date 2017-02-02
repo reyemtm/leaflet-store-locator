@@ -272,14 +272,22 @@
       .setView([40.410976, -82.928835], 8);
 
     //L.hash(map);
-    var cartodb = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    var cartodbLight = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
       subdomains: 'abcd'
     });
-    var road = L.gridLayer.googleMutant({
+    var googleStreets = L.gridLayer.googleMutant({
       type: 'roadmap' // valid values are 'roadmap', 'satellite', 'terrain' and 'hybrid'
     }).addTo(map);
 
+    //layer control
+    var baselayers = {
+      "Google Street" : googleStreets,
+      "Grayscale"     : cartodbLight
+    };
+    
+    var layerControl = new L.control.layers(basemaps, null).addTo(map);
+      
     //end basic map
 
     //show search on search icon click
