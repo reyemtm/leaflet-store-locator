@@ -446,9 +446,9 @@
     map.on('locationfound', function(e) {
       console.log(e);
       //8046.72 meters = 5 miles
-      var radius = 8000;
+      var radius = 80000;
       var rmiles = (radius/1609.34).toFixed(0); 
-      userLocation = new L.Circle(e.latlng, 80000, {
+      userLocation = new L.Circle(e.latlng, radius, {
         color: 'cadetblue',
         fillColor: 'cadetblue',
         fillOpacity: 0.2,
