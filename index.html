@@ -441,7 +441,7 @@
         radius: 30
       }).addTo(map);
       userLocation.setRadius(8046.72);
-      var point = turf.point(e.longitude,e.latitude);
+      var point = turf.point([e.longitude,e.latitude]);
       var within2 = turf.featurecollection(stores.forEach(function(store) {
         if (turf.distance(store, point, 'miles') <= 5) return true;
       }));
