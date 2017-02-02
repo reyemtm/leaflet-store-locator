@@ -450,10 +450,9 @@
       console.log(within);
       var size = Object.keys(within.features._layers).length;
       console.log(size);
-      $("#infoDivInner").innerHTML = ("Number of stores within " + rmiles + " miles of your location: " + size);
+      $("#infoDivInner").innerHTML("Location found!<br>Number of store(s) within " + rmiles + " miles of your location: " + size);
       $("#storeinfo").show();
     })
-      
     }); //end on ready function
     //setTimeout(function() {        
         
