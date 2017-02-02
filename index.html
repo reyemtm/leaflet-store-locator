@@ -466,7 +466,7 @@
       console.log(nearest);
       if (nearest.properties.name) {
         $("#infoDivInner").html("Location found!<br>Store(s) within " + rmiles + " miles of your location: " + size + "<br>Your nearest store is " + "<div class='item'><a href='#' class='title'>" + nearest.properties.name + "</div></div>");
-        circle = new L.circleMarker(nearest.geometry.coordinates, {
+        circle = new L.circleMarker([nearest.geometry.coordinates[0],nearest.geometry.coordinates[1]], {
           color: 'red',
           fillColor: '#f03',
           fillOpacity: 0.5,
