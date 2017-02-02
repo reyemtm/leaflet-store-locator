@@ -431,6 +431,12 @@
       setVIew: true,
       maxZoom: 10
     });
+    
+    if (map.locationFound()) {
+      console.log(true) 
+    }
+        
+    var ptsWithin = turf.within(points, stores.toGeoJSON());
     //sidebar.hide();
     //}, 500);
     map.on('click', function() {
