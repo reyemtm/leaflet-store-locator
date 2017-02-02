@@ -249,7 +249,7 @@
   <div id="app">
     <div class='sidebar'>
       <div class='heading'>
-        <h1>Shagbark Seed & Mill<span id="searchIcon"><i class="fa fa-search"></i></span></h1>
+        <h1>Leaflet Store Locator<span id="searchIcon"><i class="fa fa-search"></i></span></h1>
         <div id="searchbox" style="display:none;">
           <input type="text" id="search-input" autofocus/>
         </div>
@@ -312,7 +312,7 @@
       el.className += ' active';
     }
     storesData.on('ready', function() {
-      map.fitBounds(stores.getBounds();
+      map.fitBounds(stores.getBounds());
       toggleSearch.onclick = function() {
         var s = document.getElementById('searchbox');
         if (s.style.display != 'none') {
