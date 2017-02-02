@@ -432,11 +432,19 @@
       maxZoom: 10
     });
     
-    if (map.locationfound()) {
-      console.log(true) 
+    if (map.on('locationfound', function(e)) {
+      console.log(e);
+      var userLocation = new L.circleMarker(e.latlng, {
+        color: 'cadetblue',
+        fillColor: 'cadetblue',
+        fillOpacity: 0.2,
+        radius: 30
+       }).addTo(map);
+      var nearbyStores = turf.within(userLocation.toGeoJSON(), stores.toGeoJSON());
+      console.log(nearbyStores);  
+      nearbyStores.addTo(map);
     }
         
-    var ptsWithin = turf.within(points, stores.toGeoJSON());
     //sidebar.hide();
     //}, 500);
     map.on('click', function() {
