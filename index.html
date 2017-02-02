@@ -443,7 +443,7 @@
       var point = turf.point([e.longitude,e.latitude]);
       var within = turf.featureCollection(stores.eachLayer(function(store) {
         console.log(store);
-        if (turf.distance(feature(store.feature.geometry), point, 'miles') <= 5) return true;
+        if (turf.distance(turf.feature(store.feature.geometry), point, 'miles') <= 5) return true;
       }));
       console.log(within);
       var within2 = turf.featureCollection(stores.eachLayer(function(store) {
