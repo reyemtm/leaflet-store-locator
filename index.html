@@ -465,7 +465,7 @@
       var nearest = turf.nearest(point, stores.toGeoJSON());
       console.log(nearest);
       if (nearest.properties.name) {
-        $("#infoDivInner").html("Location found!<br>Store(s) within " + rmiles + " miles of your location: " + size + "<br>Your nearest store is " + "<div class='item'><a href='#' class='title'>" + nearest.properties.name + "</div></div>");
+        $("#infoDivInner").html("Location found!<br>Store(s) within " + rmiles + " miles of your location: " + size + "<br>Your nearest store is <strong>" + nearest.properties.name + "</strong>");
         circle = new L.circleMarker([nearest.geometry.coordinates[1],nearest.geometry.coordinates[0]], {
           color: 'red',
           fillColor: '#f03',
