@@ -445,11 +445,11 @@
         console.log(store);
         if (turf.distance(turf.feature(store.feature.geometry), point, 'miles') <= 5) return true;
       }));
-      if (!within.length && within.length > 0) {
+      if (within.length && within.length > 0) {
         var numStores = within.length;
         $("#infoDivInner").innerHTML = ("Number of stores within 10 miles of your location: " + numStores);
       }
-      console.log(within);
+      console.log(within.length);
       //var nearbyStores = turf.within(userLocation.toGeoJSON(), stores.toGeoJSON());
       //console.log(nearbyStores);  
       //nearbyStores.addTo(map);
