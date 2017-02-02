@@ -441,7 +441,16 @@
         radius: 30
       }).addTo(map);
       userLocation.setRadius(8046.72);
-      var nearbyStores = turf.within(userLocation.toGeoJSON(), stores.toGeoJSON());
+      var point=turf.point(e.latlng.lng, e.latlng..lat);
+      var within2 = turf.featurecollection(stores.forEach(function(store) {
+        if (turf.distance(store, point, 'miles') <= 5) return true;
+      }));
+      console.log(within2);
+      var within = turf.featurecollection(stores.forEach(function(store) {
+        if (turf.distance(store.toGeoJSON(), point, 'miles') <= 5) return true;
+      }));
+      console.log(within);
+      //var nearbyStores = turf.within(userLocation.toGeoJSON(), stores.toGeoJSON());
       //console.log(nearbyStores);  
       //nearbyStores.addTo(map);
     })
