@@ -301,7 +301,7 @@
     });
     var listings = document.getElementById('listingDiv');
     var stores = L.geoJson().addTo(map);
-    var storesData = omnivore.csv('assets/stores.csv', null, stores);
+    var storesData = omnivore.csv('assets/data/stores.csv', null, stores);
 
     function setActive(el) {
       var siblings = listings.getElementsByTagName('div');
