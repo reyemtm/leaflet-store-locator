@@ -434,13 +434,13 @@
     
     map.on('locationfound', function(e) {
       console.log(e);
-      var userLocation = new L.circleMarker(e.latlng, {
+      var userLocation = new L.Circle(e.latlng, 8046.72 {
         color: 'cadetblue',
         fillColor: 'cadetblue',
         fillOpacity: 0.2,
         radius: 30
       }).addTo(map);
-      userLocation.setRadius(8046.72);
+      //userLocation.setRadius(8046.72);
       //var nearbyStores = turf.within(userLocation.toGeoJSON(), stores.toGeoJSON());
       //console.log(nearbyStores);  
       //nearbyStores.addTo(map);
