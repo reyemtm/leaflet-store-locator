@@ -465,7 +465,13 @@
       var nearest = turf.nearest(point, stores.toGeoJSON());
       console.log(nearest);
       if (nearest.properties.name) {
-        $("#infoDivInner").html("Location found!<br>Number of store(s) within " + rmiles + " miles of your location: " + size + "<br>Your nearest store is " + nearest.properties.name);
+        $("#infoDivInner").html("Location found!<br>Store(s) within " + rmiles + " miles of your location: " + size + "<br>Your nearest store is " + nearest.properties.name);
+        circle = new L.circleMarker(nearest.properties.coordinates, {
+          color: 'red',
+          fillColor: '#f03',
+          fillOpacity: 0.5,
+          radius: 50,
+        }).addTo(map);
       }
       $("#storeinfo").show();
     })
