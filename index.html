@@ -293,6 +293,7 @@
     var hasCircle = 0;
     var circle = [];
     //close store infor when x is clicked
+    var userLocation;
     $("#infoClose").click(function() {
       $("#storeinfo").hide();
       if (map.hasLayer(circle)) {
@@ -385,6 +386,9 @@
         };
         // Marker interaction
         layer.on('click', function(e) {
+          if (map.hasLayer(userLocation)) {
+            map.removeLayer(userLocation)
+          }
           //console.log(e.latlng);
           if (linkClick != 1) {
             map.setView([e.latlng.lat, e.latlng.lng], 16);
@@ -436,7 +440,7 @@
       //8046.72 meters = 5 miles
       var radius = 8000;
       var rmiles = (radius/1609.34).toFixed(0); 
-      var userLocation = new L.Circle(e.latlng, 80000, {
+      userLocation = new L.Circle(e.latlng, 80000, {
         color: 'cadetblue',
         fillColor: 'cadetblue',
         fillOpacity: 0.2,
@@ -459,6 +463,9 @@
     //sidebar.hide();
     //}, 500);
     map.on('click', function() {
+      if (map.hasLayer(userLocation)) {
+        map.removeLayer(userLocation)
+      }
       if (map.hasLayer(circle)) {
         ////console.log('circle');
         map.removeLayer(circle);
