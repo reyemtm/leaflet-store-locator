@@ -1,0 +1,11 @@
+Surge to host website. Installed Surge NPM Node to host directory. Stored on Nick's computer at C:\Users\Nick\Dropbox\Shagbark\location-map. Surge hosts "index.html" 
+
+Surge U: nkroncke@outlook.com p: chips1993 
+project path: C:\Users\Nick\Dropbox\Shagbark\location-map 
+Domain: shagbarkmap.surge.sh
+
+
+Open Node, type in Surge, enter email and pw, uploads domain.
+
+Nicks comp version: Node JS:?
+
