@@ -464,8 +464,7 @@
       console.log(size);
       var nearest = turf.nearest(point, stores.toGeoJSON());
       console.log(nearest);
-      $("#infoDivInner").html("Location found!<br>Number of store(s) within " + rmiles + " miles of your location: " + size + \
-                             "Your nearest store is...");
+      $("#infoDivInner").html("Location found!<br>Number of store(s) within " + rmiles + " miles of your location: " + size + "<br>Your nearest store is...");
       $("#storeinfo").show();
     })
     }); //end on ready function
