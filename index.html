@@ -433,23 +433,19 @@
     
     map.on('locationfound', function(e) {
       console.log(e);
-      var userLocation = new L.Circle(e.latlng, 8046.72, {
+      //8046.72 meters = 5 miles
+      var userLocation = new L.Circle(e.latlng, 10000046.72, {
         color: 'cadetblue',
         fillColor: 'cadetblue',
         fillOpacity: 0.2,
         radius: 30
       }).addTo(map);
-      userLocation.setRadius(8046.72);
       var point = turf.point([e.longitude,e.latitude]);
       var within = turf.featureCollection(stores.eachLayer(function(store) {
         console.log(store);
         if (turf.distance(turf.feature(store.feature.geometry), point, 'miles') <= 5) return true;
       }));
       console.log(within);
-      var within2 = turf.featureCollection(stores.eachLayer(function(store) {
-        if (turf.distance(store, point, 'miles') <= 5) return true;
-      }));
-      console.log(within2);
       //var nearbyStores = turf.within(userLocation.toGeoJSON(), stores.toGeoJSON());
       //console.log(nearbyStores);  
       //nearbyStores.addTo(map);
