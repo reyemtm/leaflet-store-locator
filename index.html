@@ -425,9 +425,8 @@
           popupAnchor: [-14, -47]
         }));
       }); //end eachLayer
-    }); //end on ready function
-    //setTimeout(function() {
-    map.locate({
+      
+          map.locate({
       setVIew: true,
       maxZoom: 10
     });
@@ -442,7 +441,7 @@
       }).addTo(map);
       userLocation.setRadius(8046.72);
       var point = turf.point([e.longitude,e.latitude]);
-      var within2 = turf.featurecollection(stores.forEach(function(store) {
+      var within2 = turf.featurecollection(stores.eachLayer(function(store) {
         if (turf.distance(store, point, 'miles') <= 5) return true;
       }));
       console.log(within2);
@@ -454,7 +453,9 @@
       //console.log(nearbyStores);  
       //nearbyStores.addTo(map);
     })
-        
+      
+    }); //end on ready function
+    //setTimeout(function() {        
         
     //sidebar.hide();
     //}, 500);
