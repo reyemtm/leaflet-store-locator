@@ -453,7 +453,7 @@
         fillColor: 'cadetblue',
         fillOpacity: 0.2,
         radius: 30
-      }).addTo(map);
+      });
       var point = turf.point([e.longitude,e.latitude]);
       var within = turf.featureCollection(stores.eachLayer(function(store) {
         console.log(store);
