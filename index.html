@@ -446,7 +446,7 @@
         if (turf.distance(turf.feature(store.feature.geometry), point, 'miles') <= 100) return true;
       }));
       console.log(within);
-      var size = Object.keys(within);
+      var size = Object.keys(within.features._layers);
       console.log(size);
       if (within.features.length && within.features.length > 0) {
         var numStores = within.length;
