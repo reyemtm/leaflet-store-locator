@@ -300,7 +300,7 @@
     });
     var listings = document.getElementById('listingDiv');
     var stores = L.geoJson().addTo(map);
-    var storesData = omnivore.csv('https://dl.dropboxusercontent.com/s/1lv4zhzatv6sd8n/ShagbarkStores.csv', null, stores);
+    var storesData = omnivore.csv('assets/stores.csv', null, stores);
 
     function setActive(el) {
       var siblings = listings.getElementsByTagName('div');
