@@ -434,7 +434,7 @@
     map.on('locationfound', function(e) {
       console.log(e);
       //8046.72 meters = 5 miles
-      var userLocation = new L.Circle(e.latlng, 10000046.72, {
+      var userLocation = new L.Circle(e.latlng, 80000, {
         color: 'cadetblue',
         fillColor: 'cadetblue',
         fillOpacity: 0.2,
@@ -443,7 +443,7 @@
       var point = turf.point([e.longitude,e.latitude]);
       var within = turf.featureCollection(stores.eachLayer(function(store) {
         console.log(store);
-        if (turf.distance(turf.feature(store.feature.geometry), point, 'miles') <= 100000) return true;
+        if (turf.distance(turf.feature(store.feature.geometry), point, 'miles') <= 100) return true;
       }));
       if (within.feature.length && within.feature.length > 0) {
         var numStores = within.length;
