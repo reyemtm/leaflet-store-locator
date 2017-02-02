@@ -432,7 +432,7 @@
       maxZoom: 10
     });
     
-    if (map.on('locationfound', function(e)) {
+    if (map.on('locationfound', function(e) {
       console.log(e);
       var userLocation = new L.circleMarker(e.latlng, {
         color: 'cadetblue',
