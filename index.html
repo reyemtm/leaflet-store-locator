@@ -441,12 +441,12 @@
       }).addTo(map);
       userLocation.setRadius(8046.72);
       var point = turf.point([e.longitude,e.latitude]);
-      var within = turf.featurecollection(stores.eachLayer(function(store) {
+      var within = turf.featureCollection(stores.eachLayer(function(store) {
         console.log(store);
         if (turf.distance(store.toGeoJSON(), point, 'miles') <= 5) return true;
       }));
       console.log(within);
-      var within2 = turf.featurecollection(stores.eachLayer(function(store) {
+      var within2 = turf.featureCollection(stores.eachLayer(function(store) {
         if (turf.distance(store, point, 'miles') <= 5) return true;
       }));
       console.log(within2);
