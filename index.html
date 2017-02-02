@@ -443,9 +443,9 @@
       var point = turf.point([e.longitude,e.latitude]);
       var within = turf.featureCollection(stores.eachLayer(function(store) {
         console.log(store);
-        if (turf.distance(turf.feature(store.feature.geometry), point, 'miles') <= 5) return true;
+        if (turf.distance(turf.feature(store.feature.geometry), point, 'miles') <= 100000) return true;
       }));
-      if (within.length && within.length > 0) {
+      if (within.feature.length && within.feature.length > 0) {
         var numStores = within.length;
         $("#infoDivInner").innerHTML = ("Number of stores within 10 miles of your location: " + numStores);
       }
