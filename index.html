@@ -312,6 +312,7 @@
       el.className += ' active';
     }
     storesData.on('ready', function() {
+      map.fitBounds(stores.getBounds();
       toggleSearch.onclick = function() {
         var s = document.getElementById('searchbox');
         if (s.style.display != 'none') {
