@@ -5,4 +5,4 @@ A responsive store locator based on the [Mapbox JS](https://www.mapbox.com/help/
 
 [Demo](https://getbounds.com/leaflet-store-locator/demo.html)
 
-Stores are loaded via a ``stores.csv`` file in the ``assets/data/`` folder.
+Stores are loaded via a ``stores.csv`` file in the ``assets/data/`` folder. The search is done on the entire sidebar list, so this may not be the best option for extremely large data sets. 
