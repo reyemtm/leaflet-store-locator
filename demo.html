@@ -461,7 +461,8 @@
       console.log(e);
       //8046.72 meters = 5 miles
       var radius = 80000;
-      var rmiles = (radius/1609.34).toFixed(0); 
+//       var rmiles = (radius/1609.34).toFixed(0); 
+      var range = 10;
       userLocation = new L.Circle(e.latlng, radius, {
         color: 'cadetblue',
         fillColor: 'cadetblue',
@@ -471,7 +472,7 @@
       var point = turf.point([e.longitude,e.latitude]);
       var within = turf.featureCollection(stores.eachLayer(function(store) {
         console.log(store);
-        if (turf.distance(turf.feature(store.feature.geometry), point, 'miles') <= rmiles) return true;
+        if (turf.distance(turf.feature(store.feature.geometry), point, 'miles') <= range) return true;
       }));
       console.log(within);
       var size = Object.keys(within.features._layers).length;
@@ -479,7 +480,7 @@
       var nearest = turf.nearest(point, stores.toGeoJSON());
       console.log(nearest);
       if (nearest.properties.name) {
-        $("#infoDivInner").html("Location found!<br>Store(s) within " + rmiles + " miles of your location: " + size + "<br>Your nearest store is <strong>" + nearest.properties.name + "</strong>");
+        $("#infoDivInner").html("Location found!<br>Store(s) within " + range + " miles of your location: " + size + "<br>Your nearest store is <strong>" + nearest.properties.name + "</strong>");
         circle = new L.circleMarker([nearest.geometry.coordinates[1],nearest.geometry.coordinates[0]], {
           color: 'red',
           fillColor: '#f03',
