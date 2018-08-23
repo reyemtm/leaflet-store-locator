@@ -473,6 +473,7 @@
       
       var storesWithin = storesSorted.features.map(function(store) {
         var newpoint = turf.feature(store.geometry);
+        console.log(turf.distance(newpoint, point, {units: 'miles'});
         if (turf.distance(newpoint, point, {units: 'miles'}) <= range) {
           return store
         }
@@ -491,7 +492,7 @@
       var nearest = turf.nearest(point, stores.toGeoJSON());
       console.log(nearest);
       if (nearest.properties.name) {
-        $("#infoDivInner").html("Location found!<br>Store(s) within " + range + " miles of your location: " + "placeholder" + "<br>Your nearest store is <strong>" + nearest.properties.name + "</strong>");
+        $("#infoDivInner").html("Location found!<br>Your nearest store is " + "<strong>" + nearest.properties.name + "</strong>");
         circle = new L.circleMarker([nearest.geometry.coordinates[1],nearest.geometry.coordinates[0]], {
           color: 'red',
           fillColor: '#f03',
