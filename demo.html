@@ -470,19 +470,28 @@
         radius: 30
       });
       var point = turf.point([e.longitude,e.latitude]);
-      var within = turf.featureCollection(stores.eachLayer(function(store) {
-        console.log(store);
+      
+      var storesWithin = stores.features.map(function(store) {
         var newpoint = turf.feature(store.feature.geometry);
-        console.log(turf.distance(newpoint, point, {units: 'miles'}));
-        if (turf.distance(newpoint, point, {units: 'miles'}) <= range) return true;
-      }));
-      console.log(within);
-      var size = Object.keys(within.features._layers).length;
-      console.log(size);
+        if (turf.distance(newpoint, point, {units: 'miles'}) <= range) {
+          return store
+        }
+      });
+      console.log(storesWithin);
+      
+//       var within = turf.featureCollection(stores.eachLayer(function(store) {
+//         console.log(store);
+//         var newpoint = turf.feature(store.feature.geometry);
+//         console.log(turf.distance(newpoint, point, {units: 'miles'}));
+//         if (turf.distance(newpoint, point, {units: 'miles'}) <= range) return true;
+//       }));
+//       console.log(within);
+//       var size = Object.keys(within.features._layers).length;
+//       console.log(size);
       var nearest = turf.nearest(point, stores.toGeoJSON());
       console.log(nearest);
       if (nearest.properties.name) {
-        $("#infoDivInner").html("Location found!<br>Store(s) within " + range + " miles of your location: " + size + "<br>Your nearest store is <strong>" + nearest.properties.name + "</strong>");
+        $("#infoDivInner").html("Location found!<br>Store(s) within " + range + " miles of your location: " + "placeholder" + "<br>Your nearest store is <strong>" + nearest.properties.name + "</strong>");
         circle = new L.circleMarker([nearest.geometry.coordinates[1],nearest.geometry.coordinates[0]], {
           color: 'red',
           fillColor: '#f03',
