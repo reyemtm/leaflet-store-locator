@@ -311,7 +311,7 @@
     var listings = document.getElementById('listingDiv');
     var stores = L.geoJson().addTo(map);
     var storesData = omnivore.csv('assets/data/stores.csv');
-
+    
     function setActive(el) {
       var siblings = listings.getElementsByTagName('div');
       for (var i = 0; i < siblings.length; i++) {
@@ -471,7 +471,7 @@
       });
       var point = turf.point([e.longitude,e.latitude]);
       
-      var storesWithin = stores.features.map(function(store) {
+      var storesWithin = storesSorted.features.map(function(store) {
         var newpoint = turf.feature(store.feature.geometry);
         if (turf.distance(newpoint, point, {units: 'miles'}) <= range) {
           return store
