@@ -473,7 +473,7 @@
       
       var storesWithin = storesSorted.features.map(function(store) {
         var newpoint = turf.feature(store.geometry);
-        console.log(turf.distance(newpoint, point, {units: 'miles'});
+        console.log(turf.distance(newpoint, point, {units: 'miles'}));
         if (turf.distance(newpoint, point, {units: 'miles'}) <= range) {
           return store
         }
