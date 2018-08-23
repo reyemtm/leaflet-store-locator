@@ -472,7 +472,9 @@
       var point = turf.point([e.longitude,e.latitude]);
       var within = turf.featureCollection(stores.eachLayer(function(store) {
         console.log(store);
-        if (turf.distance(turf.feature(store.feature.geometry), point, {units: 'miles'}) <= range) return true;
+        var newpoint = turf.feature(store.feature.geometry);
+        console.log(turf.distance(newpoint, point, {units: 'miles'});
+        if (turf.distance(newpoint, point, {units: 'miles'}) <= range) return true;
       }));
       console.log(within);
       var size = Object.keys(within.features._layers).length;
